@@ -20,19 +20,19 @@ const Contact = () => {
     {
       icon: <Mail className="w-5 h-5" />,
       title: "Email",
-      value: "your.email@example.com",
-      href: "mailto:your.email@example.com",
+      value: "gazisn870@gmail.com",
+      href: "mailto:gazisn870@gmail.com",
     },
     {
       icon: <Phone className="w-5 h-5" />,
       title: "Phone",
-      value: "+1 (555) 123-4567",
-      href: "tel:+15551234567",
+      value: "01636308036",
+      href: "tel:01636308036",
     },
     {
       icon: <MapPin className="w-5 h-5" />,
       title: "Location",
-      value: "Your City, Country",
+      value: "Dhaka, Bangladesh",
       href: null,
     },
   ];

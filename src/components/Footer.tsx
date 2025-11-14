@@ -18,7 +18,7 @@ const Footer = () => {
           {/* Social Links */}
           <div className="flex gap-4">
             <a 
-              href="https://github.com" 
+              href="https://github.com/SuvroGfz" 
               target="_blank" 
               rel="noopener noreferrer"
               className="p-3 bg-card hover:bg-secondary border border-border rounded-lg transition-all hover:scale-110 hover:glow-effect"
@@ -26,7 +26,7 @@ const Footer = () => {
               <Github className="w-5 h-5" />
             </a>
             <a 
-              href="https://linkedin.com" 
+              href="https://linkedin.com/in/gazi-fardin-zafor-suvro-a755bb2a7" 
               target="_blank" 
               rel="noopener noreferrer"
               className="p-3 bg-card hover:bg-secondary border border-border rounded-lg transition-all hover:scale-110 hover:glow-effect"
@@ -34,7 +34,7 @@ const Footer = () => {
               <Linkedin className="w-5 h-5" />
             </a>
             <a 
-              href="mailto:your.email@example.com"
+              href="mailto:gazisn870@gmail.com"
               className="p-3 bg-card hover:bg-secondary border border-border rounded-lg transition-all hover:scale-110 hover:glow-effect"
             >
               <Mail className="w-5 h-5" />
@@ -43,7 +43,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-8 pt-8 border-t border-border text-center text-muted-foreground">
-          <p>© {currentYear} Your Name. All rights reserved.</p>
+          <p>© {currentYear} Gazi Fardin Zafor Suvro. All rights reserved.</p>
         </div>
       </div>
     </footer>
