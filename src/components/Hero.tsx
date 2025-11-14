@@ -24,16 +24,16 @@ const Hero = () => {
         </div>
         
         <h1 className="text-5xl md:text-7xl font-bold mb-6">
-          Hi, I'm <span className="text-gradient">Your Name</span>
+          Hi, I'm <span className="text-gradient">Gazi Fardin Zafor Suvro</span>
         </h1>
         
         <p className="text-xl md:text-2xl text-muted-foreground mb-4">
-          Associate Software Engineer
+          Computer Science Graduate | Full-Stack Developer
         </p>
         
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-          Building innovative solutions and crafting clean code. 
-          Passionate about creating seamless user experiences and solving complex problems.
+          Recent CS graduate from BUET with passion for building innovative web applications 
+          and machine learning solutions. 2nd Runners Up at Therap Javafest 2024.
         </p>
 
         {/* CTA Buttons */}
@@ -44,12 +44,15 @@ const Hero = () => {
           <Button size="lg" variant="secondary">
             <a href="#contact">Get In Touch</a>
           </Button>
+          <Button size="lg" variant="outline" className="border-primary hover:bg-primary hover:text-primary-foreground">
+            <a href="/resume.pdf" download="Gazi_Fardin_Resume.pdf">Download Resume</a>
+          </Button>
         </div>
 
         {/* Social Links */}
         <div className="flex gap-4 justify-center">
           <a 
-            href="https://github.com" 
+            href="https://github.com/SuvroGfz" 
             target="_blank" 
             rel="noopener noreferrer"
             className="p-3 bg-card hover:bg-secondary border border-border rounded-lg transition-all hover:scale-110 hover:glow-effect"
@@ -57,7 +60,7 @@ const Hero = () => {
             <Github className="w-5 h-5" />
           </a>
           <a 
-            href="https://linkedin.com" 
+            href="https://linkedin.com/in/gazi-fardin-zafor-suvro-a755bb2a7" 
             target="_blank" 
             rel="noopener noreferrer"
             className="p-3 bg-card hover:bg-secondary border border-border rounded-lg transition-all hover:scale-110 hover:glow-effect"
@@ -65,7 +68,7 @@ const Hero = () => {
             <Linkedin className="w-5 h-5" />
           </a>
           <a 
-            href="mailto:your.email@example.com"
+            href="mailto:gazisn870@gmail.com"
             className="p-3 bg-card hover:bg-secondary border border-border rounded-lg transition-all hover:scale-110 hover:glow-effect"
           >
             <Mail className="w-5 h-5" />

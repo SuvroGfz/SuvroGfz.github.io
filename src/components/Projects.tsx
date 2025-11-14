@@ -6,32 +6,40 @@ import { Badge } from "@/components/ui/badge";
 const Projects = () => {
   const projects = [
     {
-      title: "E-Commerce Platform",
-      description: "A full-stack e-commerce solution with payment integration, user authentication, and real-time inventory management.",
-      tags: ["React", "Node.js", "MongoDB", "Stripe"],
-      github: "https://github.com",
-      demo: "https://demo.com",
+      title: "PetPalok 🏆",
+      description: "2nd Runners Up at Therap Javafest 2024. A comprehensive Pet Community Web-App with pet profiles, marketplace with AI price prediction, community groups, real-time chat, and vet appointment scheduling.",
+      tags: ["Java Spring Boot", "React", "MongoDB", "Python", "TensorFlow", "Socket.IO"],
+      github: "https://github.com/SuvroGfz",
     },
     {
-      title: "Task Management App",
-      description: "Collaborative task management tool with real-time updates, team workspaces, and progress tracking.",
-      tags: ["TypeScript", "React", "Firebase", "Tailwind"],
-      github: "https://github.com",
-      demo: "https://demo.com",
+      title: "MediaSynergy",
+      description: "Social media management platform for content creation, scheduling, and analytics across multiple platforms. Features business community networking and performance tracking via Facebook Graph API.",
+      tags: ["React", "Node.js", "MongoDB", "Ayrshare API"],
+      github: "https://github.com/SuvroGfz",
     },
     {
-      title: "Weather Dashboard",
-      description: "Interactive weather application featuring real-time forecasts, location search, and data visualization.",
-      tags: ["React", "API Integration", "Charts.js"],
-      github: "https://github.com",
-      demo: "https://demo.com",
+      title: "Energy Usage Prediction",
+      description: "Smart grid optimization using machine learning for short and long-term energy forecasting. Implemented LSTM with NNPSO for enhanced performance, tested against GRU, N-BEATS, and ARIMA models.",
+      tags: ["Python", "LSTM", "Machine Learning", "Time Series"],
+      github: "https://github.com/SuvroGfz",
     },
     {
-      title: "Portfolio CMS",
-      description: "Content management system for portfolio websites with drag-and-drop builder and theme customization.",
-      tags: ["Next.js", "PostgreSQL", "Prisma", "TailwindCSS"],
-      github: "https://github.com",
-      demo: "https://demo.com",
+      title: "Foodies",
+      description: "Complete online food ordering and delivery platform connecting users, restaurants, and riders. Features seamless order management, restaurant menus, and real-time delivery tracking.",
+      tags: ["PHP", "MySQL", "HTML", "CSS"],
+      github: "https://github.com/SuvroGfz",
+    },
+    {
+      title: "Freeway Rush",
+      description: "Dynamic running game built with Unity Engine. Navigate bustling roads, avoid obstacles, and test your reflexes in this engaging mobile game experience.",
+      tags: ["Unity", "C#", "Blender", "Game Development"],
+      github: "https://github.com/SuvroGfz",
+    },
+    {
+      title: "Football Database Management",
+      description: "Java-based football player and club management system with networking features. Supports player trading, club operations, and comprehensive search functionality using OOP principles.",
+      tags: ["Java", "JavaFX", "Threading", "Networking"],
+      github: "https://github.com/SuvroGfz",
     },
   ];
 
@@ -43,7 +51,7 @@ const Projects = () => {
             Featured <span className="text-gradient">Projects</span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            A showcase of my recent work and contributions
+            A showcase of my development journey and achievements
           </p>
         </div>
 
@@ -83,16 +91,7 @@ const Projects = () => {
                   >
                     <a href={project.github} target="_blank" rel="noopener noreferrer">
                       <Github className="w-4 h-4 mr-2" />
-                      Code
-                    </a>
-                  </Button>
-                  <Button 
-                    className="flex-1 tech-gradient"
-                    asChild
-                  >
-                    <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Demo
+                      View on GitHub
                     </a>
                   </Button>
                 </div>

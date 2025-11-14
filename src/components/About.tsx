@@ -35,14 +35,14 @@ const About = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
           <div className="space-y-6">
             <p className="text-lg leading-relaxed">
-              As an Associate Software Engineer, I'm dedicated to building high-quality applications 
-              that make a difference. My journey in software development has equipped me with a solid 
-              foundation in modern web technologies and best practices.
+              Recent Computer Science graduate from Bangladesh University of Engineering & Technology (BUET) 
+              with a CGPA of 3.54. I specialize in full-stack web development and machine learning, 
+              with proven expertise in building scalable applications using modern technologies.
             </p>
             <p className="text-lg leading-relaxed text-muted-foreground">
-              I thrive in collaborative environments and enjoy the challenge of turning complex 
-              requirements into elegant, user-friendly solutions. Always eager to learn and grow, 
-              I stay updated with the latest industry trends and technologies.
+              Proud 2nd Runners Up at Therap Javafest 2024 with my project "PetPalok". 
+              I thrive in building innovative solutions that combine cutting-edge technology 
+              with practical user experiences. Passionate about clean code and continuous learning.
             </p>
           </div>
 
