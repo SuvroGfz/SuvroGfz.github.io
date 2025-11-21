@@ -1,4 +1,4 @@
-import { Code2, Lightbulb, Rocket } from "lucide-react";
+import { Briefcase, Calendar, Code2, Lightbulb, Rocket } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const About = () => {
@@ -63,6 +63,41 @@ const About = () => {
             ))}
           </div>
         </div>
+
+        <div className="max-w-3xl mx-auto">
+          <h3 className="text-3xl font-bold mb-6">
+            Work <span className="text-gradient">Experience</span>
+          </h3>
+          <Card className="bg-card/50 border-border hover:border-primary transition-all hover:scale-105 hover:glow-effect">
+            <CardContent className="p-8">
+              <div className="flex gap-6">
+                <div className="flex-shrink-0">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Briefcase className="w-6 h-6 text-primary" />
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <h4 className="text-2xl font-semibold mb-2">
+                    Associate Software Engineer (Development)
+                  </h4>
+                  <p className="text-lg text-primary font-medium mb-3">
+                    Therap BD LTD
+                  </p>
+                  <div className="flex items-center gap-2 text-muted-foreground mb-4">
+                    <Calendar className="w-4 h-4" />
+                    <span>April 2025 - Present</span>
+                  </div>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Working as an entry-level developer, contributing to software development 
+                    projects and gaining hands-on experience with modern web technologies and 
+                    development practices.
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
       </div>
     </section>
   );
