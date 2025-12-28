@@ -9,7 +9,7 @@ const Skills = () => {
     },
     {
       title: "Frameworks & Libraries",
-      skills: ["React", "Spring Boot", "Node.js", "JavaFX"],
+      skills: ["React", "React Native", "Expo", "Spring Boot", "Node.js", "JavaFX"],
     },
     {
       title: "Database & ML",

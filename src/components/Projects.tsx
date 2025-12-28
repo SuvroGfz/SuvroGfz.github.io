@@ -6,6 +6,13 @@ import { Badge } from "@/components/ui/badge";
 const Projects = () => {
   const projects = [
     {
+      title: "WakeMeUp 📍",
+      description: "A smart location-based alarm app that alerts you when you're near your destination — perfect for bus, train, and daily commuters. Set a location on the map, choose an alarm tone, and relax. Runs in the background, even when screen is locked.",
+      tags: ["React Native", "Expo", "TypeScript", "Expo Router", "Expo Location", "Expo AV"],
+      github: "https://github.com/SuvroGfz/wake-me-up",
+      linkedin: "https://www.linkedin.com/feed/update/urn:li:activity:7397610367373336576/",
+    },
+    {
       title: "PetPalok 🏆",
       description: "2nd Runners Up at Therap Javafest 2024. A comprehensive Pet Community Web-App with pet profiles, marketplace with AI price prediction, community groups, real-time chat, and vet appointment scheduling.",
       tags: ["Java Spring Boot", "React", "MongoDB", "Python", "TensorFlow", "Socket.IO"],
@@ -91,9 +98,21 @@ const Projects = () => {
                   >
                     <a href={project.github} target="_blank" rel="noopener noreferrer">
                       <Github className="w-4 h-4 mr-2" />
-                      View on GitHub
+                      GitHub
                     </a>
                   </Button>
+                  {project.linkedin && (
+                    <Button 
+                      variant="outline" 
+                      className="flex-1 border-primary hover:bg-primary hover:text-primary-foreground"
+                      asChild
+                    >
+                      <a href={project.linkedin} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        LinkedIn
+                      </a>
+                    </Button>
+                  )}
                 </div>
               </CardContent>
             </Card>
