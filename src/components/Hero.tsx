@@ -1,19 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
+import { DottedSurface } from "@/components/ui/dotted-surface";
 
 const Hero = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
-        <img 
-          src={heroBg} 
-          alt="Hero background" 
-          className="w-full h-full object-cover opacity-20"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/80 to-background"></div>
-      </div>
+      {/* Animated Dotted Surface Background */}
+      <DottedSurface className="absolute inset-0 z-0" />
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-background/30 via-background/60 to-background pointer-events-none"></div>
 
       {/* Content */}
       <div className="relative z-10 text-center section-padding max-w-5xl mx-auto animate-fade-in-up">
