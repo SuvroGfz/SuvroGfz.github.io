@@ -1,18 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail } from "lucide-react";
-import { ParticleConstellation } from "@/components/ui/particle-constellation";
 
 const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Interactive 3D Particle Constellation */}
-      <ParticleConstellation className="z-0" />
-
-      {/* Vignette to keep text legible */}
-      <div className="absolute inset-0 z-[1] pointer-events-none bg-[radial-gradient(ellipse_at_center,transparent_0%,hsl(var(--background)/0.5)_60%,hsl(var(--background))_100%)]" />
+      {/* Vignette to keep text legible over site-wide particle background */}
+      <div className="absolute inset-0 z-[1] pointer-events-none bg-[radial-gradient(ellipse_at_center,transparent_0%,hsl(var(--background)/0.4)_70%,hsl(var(--background)/0.7)_100%)]" />
 
       {/* Glassmorphism content container */}
       <div className="relative z-10 mx-4 md:mx-6 max-w-4xl w-full animate-fade-in-up">
