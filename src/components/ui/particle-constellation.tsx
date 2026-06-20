@@ -1,5 +1,5 @@
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
 import { cn } from "@/lib/utils";
 
@@ -23,8 +23,7 @@ function Particles() {
     return { positions, basePositions: positions.slice() };
   }, []);
 
-  // Mouse listener attached to window
-  useMemo(() => {
+  useEffect(() => {
     const handler = (e: MouseEvent) => {
       mouse.current.x = (e.clientX / window.innerWidth) * 2 - 1;
       mouse.current.y = -(e.clientY / window.innerHeight) * 2 + 1;
