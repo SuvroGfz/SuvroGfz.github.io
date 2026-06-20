@@ -1,4 +1,4 @@
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 import { useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
 import { cn } from "@/lib/utils";
@@ -8,7 +8,6 @@ const COUNT = 1800;
 function Particles() {
   const pointsRef = useRef<THREE.Points>(null!);
   const mouse = useRef({ x: 0, y: 0 });
-  const { size } = useThree();
 
   const { positions, basePositions } = useMemo(() => {
     const positions = new Float32Array(COUNT * 3);
