@@ -181,7 +181,7 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="relative section-padding bg-section-bg overflow-hidden"
+      className="relative section-padding bg-section-bg/40 backdrop-blur-sm overflow-hidden"
     >
       {/* Subtle ambient backdrop */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.08),transparent_60%)]" />
