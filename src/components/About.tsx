@@ -1,75 +1,101 @@
 import { Briefcase, Calendar, Code2, Lightbulb, Rocket } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+import { motion } from "framer-motion";
+import AntigravityCard from "@/components/AntigravityCard";
+
+const highlights = [
+  {
+    icon: Code2,
+    title: "Clean Code",
+    description: "Writing maintainable and efficient code following best practices",
+    floatDuration: "5s",
+    floatDelay: "0s",
+  },
+  {
+    icon: Lightbulb,
+    title: "Problem Solver",
+    description: "Analytical thinking to tackle complex technical challenges",
+    floatDuration: "6s",
+    floatDelay: "0.8s",
+  },
+  {
+    icon: Rocket,
+    title: "Fast Learner",
+    description: "Quickly adapting to new technologies and frameworks",
+    floatDuration: "7s",
+    floatDelay: "1.6s",
+  },
+];
 
 const About = () => {
-  const highlights = [
-    {
-      icon: <Code2 className="w-8 h-8 text-primary" />,
-      title: "Clean Code",
-      description: "Writing maintainable and efficient code following best practices",
-    },
-    {
-      icon: <Lightbulb className="w-8 h-8 text-primary" />,
-      title: "Problem Solver",
-      description: "Analytical thinking to tackle complex technical challenges",
-    },
-    {
-      icon: <Rocket className="w-8 h-8 text-primary" />,
-      title: "Fast Learner",
-      description: "Quickly adapting to new technologies and frameworks",
-    },
-  ];
-
   return (
-    <section id="about" className="section-padding bg-section-bg/60 backdrop-blur-sm">
+    <section id="about" className="section-padding">
       <div className="max-w-6xl mx-auto">
+        {/* Section heading */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="text-4xl md:text-5xl font-bold mb-4"
+          >
             About <span className="text-gradient">Me</span>
-          </h2>
+          </motion.h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Passionate developer focused on creating impactful solutions
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+        {/* Two-column layout */}
+        <div className="grid md:grid-cols-2 gap-12 items-start mb-16">
+          {/* Left — Bio */}
           <div className="space-y-6">
             <p className="text-lg leading-relaxed">
-              Recent Computer Science graduate from Bangladesh University of Engineering & Technology (BUET) 
-              with a CGPA of 3.54. I specialize in full-stack web development and machine learning, 
+              Recent Computer Science graduate from Bangladesh University of Engineering & Technology (BUET)
+              with a CGPA of 3.54. I specialize in full-stack web development and machine learning,
               with proven expertise in building scalable applications using modern technologies.
             </p>
             <p className="text-lg leading-relaxed text-muted-foreground">
-              Proud 2nd Runners Up at Therap Javafest 2024 with my project "PetPalok". 
-              I thrive in building innovative solutions that combine cutting-edge technology 
+              Proud 2nd Runners Up at Therap Javafest 2024 with my project "PetPalok".
+              I thrive in building innovative solutions that combine cutting-edge technology
               with practical user experiences. Passionate about clean code and continuous learning.
             </p>
           </div>
 
+          {/* Right — Highlight cards */}
           <div className="grid gap-6">
-            {highlights.map((item, index) => (
-              <Card 
-                key={index} 
-                className="bg-card/50 border-border hover:border-primary transition-all hover:scale-105 hover:glow-effect"
-              >
-                <CardContent className="p-6 flex gap-4">
-                  <div className="flex-shrink-0">{item.icon}</div>
-                  <div>
-                    <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                    <p className="text-muted-foreground">{item.description}</p>
+            {highlights.map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <AntigravityCard
+                  key={index}
+                  index={index}
+                  floatDuration={item.floatDuration}
+                  floatDelay={item.floatDelay}
+                >
+                  <div className="glass-premium rounded-2xl p-6 flex gap-4">
+                    <div className="flex-shrink-0">
+                      <Icon className="w-8 h-8 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                      <p className="text-muted-foreground">{item.description}</p>
+                    </div>
                   </div>
-                </CardContent>
-              </Card>
-            ))}
+                </AntigravityCard>
+              );
+            })}
           </div>
         </div>
 
+        {/* Work Experience */}
         <div className="max-w-3xl mx-auto">
           <h3 className="text-3xl font-bold mb-6">
             Work <span className="text-gradient">Experience</span>
           </h3>
-          <Card className="bg-card/50 border-border hover:border-primary transition-all hover:scale-105 hover:glow-effect">
-            <CardContent className="p-8">
+
+          <AntigravityCard index={0} floatDuration="5.5s">
+            <div className="glass-premium rounded-2xl p-8">
               <div className="flex gap-6">
                 <div className="flex-shrink-0">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
@@ -78,26 +104,41 @@ const About = () => {
                 </div>
                 <div className="flex-1">
                   <h4 className="text-2xl font-semibold mb-2">
-                    Associate Software Engineer (Development)
+                    Software Engineer (Development)
                   </h4>
                   <p className="text-lg text-primary font-medium mb-3">
                     Therap BD LTD
                   </p>
                   <div className="flex items-center gap-2 text-muted-foreground mb-4">
                     <Calendar className="w-4 h-4" />
-                    <span>April 2025 - Present</span>
+                    <span>
+                      April 2025 - Present{" "}
+                      <span className="text-primary/80 text-sm">
+                        ({(() => {
+                          const start = new Date(2025, 3, 5); // April 5, 2025
+                          const now = new Date();
+                          let months = (now.getFullYear() - start.getFullYear()) * 12 + (now.getMonth() - start.getMonth());
+                          if (now.getDate() < start.getDate()) months--;
+                          const years = Math.floor(months / 12);
+                          const remainingMonths = months % 12;
+                          if (years >= 1) return `${years}yr ${remainingMonths}mo`;
+                          return `${months} months`;
+                        })()})
+                      </span>
+                    </span>
                   </div>
                   <p className="text-muted-foreground leading-relaxed">
-                    Working as an entry-level developer, contributing to software development 
-                    projects and gaining hands-on experience with modern web technologies and 
-                    development practices.
+                    Full-stack software engineer working on enterprise-grade web applications.
+                    Building and maintaining features using Java, Spring Boot, and React with
+                    AWS S3 for object storage, ClickHouse for OLAP analytics, and Docker for
+                    containerized deployments. Collaborating through Bitbucket and JIRA in agile
+                    development workflows.
                   </p>
                 </div>
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </AntigravityCard>
         </div>
-
       </div>
     </section>
   );

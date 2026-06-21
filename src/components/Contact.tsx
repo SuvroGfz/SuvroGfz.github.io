@@ -1,21 +1,8 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Mail, MapPin, Phone } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { Card, CardContent } from "@/components/ui/card";
+import { Mail, MapPin, Phone, Github, Linkedin } from "lucide-react";
+import AntigravityCard from "@/components/AntigravityCard";
 
 const Contact = () => {
-  const { toast } = useToast();
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
-  };
-
   const contactInfo = [
     {
       icon: <Mail className="w-5 h-5" />,
@@ -35,11 +22,23 @@ const Contact = () => {
       value: "Dhaka, Bangladesh",
       href: null,
     },
+    {
+      icon: <Github className="w-5 h-5" />,
+      title: "GitHub",
+      value: "SuvroGfz",
+      href: "https://github.com/SuvroGfz",
+    },
+    {
+      icon: <Linkedin className="w-5 h-5" />,
+      title: "LinkedIn",
+      value: "Gazi Fardin Zafor Suvro",
+      href: "https://linkedin.com/in/gazi-fardin-zafor-suvro-a755bb2a7",
+    },
   ];
 
   return (
     <section id="contact" className="section-padding">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Get In <span className="text-gradient">Touch</span>
@@ -49,14 +48,15 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
-          {/* Contact Info */}
-          <div className="space-y-6">
-            {contactInfo.map((info, index) => (
-              <Card 
-                key={index}
-                className="bg-card/50 border-border hover:border-primary transition-all hover:glow-effect"
-              >
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {contactInfo.map((info, index) => (
+            <AntigravityCard
+              key={index}
+              floatDuration={`${5 + index * 0.5}s`}
+              floatDelay={`${index * 0.4}s`}
+              index={index}
+            >
+              <Card className="glass-premium border-border hover:border-primary/40 transition-all hover:glow-effect h-full">
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
                     <div className="p-3 bg-primary/10 rounded-lg text-primary">
@@ -65,8 +65,10 @@ const Contact = () => {
                     <div>
                       <h3 className="font-semibold mb-1">{info.title}</h3>
                       {info.href ? (
-                        <a 
+                        <a
                           href={info.href}
+                          target={info.href.startsWith("http") ? "_blank" : undefined}
+                          rel={info.href.startsWith("http") ? "noopener noreferrer" : undefined}
                           className="text-muted-foreground hover:text-primary transition-colors"
                         >
                           {info.value}
@@ -78,80 +80,8 @@ const Contact = () => {
                   </div>
                 </CardContent>
               </Card>
-            ))}
-          </div>
-
-          {/* Contact Form */}
-          <Card className="lg:col-span-2 bg-card/50 border-border">
-            <CardHeader>
-              <CardTitle className="text-2xl">Send a Message</CardTitle>
-              <CardDescription>
-                Fill out the form below and I'll get back to you as soon as possible.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label htmlFor="name" className="text-sm font-medium">
-                      Name
-                    </label>
-                    <Input 
-                      id="name" 
-                      placeholder="Your name" 
-                      required
-                      className="bg-background"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="email" className="text-sm font-medium">
-                      Email
-                    </label>
-                    <Input 
-                      id="email" 
-                      type="email" 
-                      placeholder="your.email@example.com" 
-                      required
-                      className="bg-background"
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <label htmlFor="subject" className="text-sm font-medium">
-                    Subject
-                  </label>
-                  <Input 
-                    id="subject" 
-                    placeholder="What's this about?" 
-                    required
-                    className="bg-background"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <label htmlFor="message" className="text-sm font-medium">
-                    Message
-                  </label>
-                  <Textarea 
-                    id="message" 
-                    placeholder="Your message here..." 
-                    rows={6}
-                    required
-                    className="bg-background resize-none"
-                  />
-                </div>
-
-                <Button 
-                  type="submit" 
-                  size="lg" 
-                  className="w-full tech-gradient glow-effect"
-                >
-                  Send Message
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
+            </AntigravityCard>
+          ))}
         </div>
       </div>
     </section>

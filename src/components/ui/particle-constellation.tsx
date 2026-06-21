@@ -17,10 +17,10 @@ function Starfield() {
 
     const palette = [
       new THREE.Color("#ffffff"),
-      new THREE.Color("#a5b4fc"), // indigo
-      new THREE.Color("#7dd3fc"), // sky
-      new THREE.Color("#f9a8d4"), // pink
-      new THREE.Color("#fde68a"), // gold
+      new THREE.Color("#34d399"), // emerald light
+      new THREE.Color("#14b8a6"), // teal
+      new THREE.Color("#22d3ee"), // cyan
+      new THREE.Color("#6ee7b7"), // mint
     ];
 
     for (let i = 0; i < STAR_COUNT; i++) {
@@ -88,9 +88,9 @@ function Galaxy() {
     const positions = new Float32Array(GALAXY_COUNT * 3);
     const colors = new Float32Array(GALAXY_COUNT * 3);
 
-    const inside = new THREE.Color("#a855f7"); // violet core
-    const outside = new THREE.Color("#22d3ee"); // cyan arms
-    const tip = new THREE.Color("#ec4899"); // pink edges
+    const inside = new THREE.Color("#10b981"); // emerald core
+    const outside = new THREE.Color("#06b6d4"); // teal-cyan arms
+    const tip = new THREE.Color("#34d399"); // light emerald edges
 
     const branches = 4;
     const radius = 9;

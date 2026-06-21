@@ -1,17 +1,19 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { scrollToSection } from "@/lib/scroll";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { href: "#home", label: "Home" },
-    { href: "#about", label: "About" },
-    { href: "#skills", label: "Skills" },
-    { href: "#projects", label: "Projects" },
-    { href: "#contact", label: "Contact" },
+    { id: "home", label: "Home" },
+    { id: "about", label: "About" },
+    { id: "skills", label: "Skills" },
+    { id: "projects", label: "Projects" },
+    { id: "contact", label: "Contact" },
   ];
 
   useEffect(() => {
@@ -24,33 +26,51 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? "bg-background/95 backdrop-blur-md border-b border-border shadow-lg" 
+    <nav
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        isScrolled
+          ? "glass-panel shadow-lg border-b-0"
           : "bg-transparent"
-      }`}
+      )}
     >
+      {/* Subtle emerald gradient bottom glow line when scrolled */}
+      {isScrolled && (
+        <div
+          className="absolute bottom-0 left-0 right-0 h-px"
+          style={{
+            background:
+              "linear-gradient(90deg, transparent 0%, #10b981 30%, #06b6d4 70%, transparent 100%)",
+          }}
+        />
+      )}
+
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="#home" className="text-2xl font-bold text-gradient">
-            Portfolio
-          </a>
+          <button
+            onClick={() => scrollToSection("home")}
+            className="text-2xl font-bold text-gradient"
+          >
+            Suvro
+          </button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
+              <button
+                key={link.id}
+                onClick={() => scrollToSection(link.id)}
                 className="text-foreground hover:text-primary transition-colors font-medium"
               >
                 {link.label}
-              </a>
+              </button>
             ))}
-            <Button className="tech-gradient">
-              <a href="#contact">Hire Me</a>
+            <Button
+              className="tech-gradient"
+              onClick={() => scrollToSection("contact")}
+            >
+              Hire Me
             </Button>
           </div>
 
@@ -65,21 +85,29 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border bg-background/95 backdrop-blur-md">
+          <div className="md:hidden py-4 border-t border-white/10 glass-panel rounded-b-xl">
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="text-foreground hover:text-primary transition-colors font-medium px-4 py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                <button
+                  key={link.id}
+                  onClick={() => {
+                    scrollToSection(link.id);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="text-foreground hover:text-primary transition-colors font-medium px-4 py-2 text-left"
                 >
                   {link.label}
-                </a>
+                </button>
               ))}
               <div className="px-4">
-                <Button className="w-full tech-gradient">
-                  <a href="#contact">Hire Me</a>
+                <Button
+                  className="w-full tech-gradient"
+                  onClick={() => {
+                    scrollToSection("contact");
+                    setIsMobileMenuOpen(false);
+                  }}
+                >
+                  Hire Me
                 </Button>
               </div>
             </div>

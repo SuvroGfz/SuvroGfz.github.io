@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           {/* Brand */}
           <div className="text-center md:text-left">
-            <h3 className="text-2xl font-bold text-gradient mb-2">Portfolio</h3>
+            <h3 className="text-2xl font-bold text-gradient mb-2">Suvro</h3>
             <p className="text-muted-foreground">
               Building the future, one line of code at a time.
             </p>
@@ -17,23 +17,23 @@ const Footer = () => {
 
           {/* Social Links */}
           <div className="flex gap-4">
-            <a 
-              href="https://github.com/SuvroGfz" 
-              target="_blank" 
+            <a
+              href="https://github.com/SuvroGfz"
+              target="_blank"
               rel="noopener noreferrer"
               className="p-3 bg-card hover:bg-secondary border border-border rounded-lg transition-all hover:scale-110 hover:glow-effect"
             >
               <Github className="w-5 h-5" />
             </a>
-            <a 
-              href="https://linkedin.com/in/gazi-fardin-zafor-suvro-a755bb2a7" 
-              target="_blank" 
+            <a
+              href="https://linkedin.com/in/gazi-fardin-zafor-suvro-a755bb2a7"
+              target="_blank"
               rel="noopener noreferrer"
               className="p-3 bg-card hover:bg-secondary border border-border rounded-lg transition-all hover:scale-110 hover:glow-effect"
             >
               <Linkedin className="w-5 h-5" />
             </a>
-            <a 
+            <a
               href="mailto:gazisn870@gmail.com"
               className="p-3 bg-card hover:bg-secondary border border-border rounded-lg transition-all hover:scale-110 hover:glow-effect"
             >

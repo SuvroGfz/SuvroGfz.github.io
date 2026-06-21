@@ -1,102 +1,191 @@
+import { motion } from "framer-motion";
+import { ChevronDown, Github, Linkedin, Mail, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { scrollToSection } from "@/lib/scroll";
+import HeroMesh from "@/components/HeroMesh";
 
 const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className={cn(
+        "relative min-h-screen flex items-center justify-center overflow-hidden"
+      )}
     >
-      {/* Vignette to keep text legible over site-wide particle background */}
-      <div className="absolute inset-0 z-[1] pointer-events-none bg-[radial-gradient(ellipse_at_center,transparent_0%,hsl(var(--background)/0.4)_70%,hsl(var(--background)/0.7)_100%)]" />
-
-      {/* Glassmorphism content container */}
-      <div className="relative z-10 mx-4 md:mx-6 max-w-4xl w-full animate-fade-in-up">
-        <div className="relative rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-xl px-6 py-10 md:px-12 md:py-14 text-center shadow-[0_0_60px_-15px_hsl(var(--primary)/0.4)]">
-          {/* Neon edge glow */}
-          <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-primary/20" />
-          <div className="pointer-events-none absolute -inset-px rounded-3xl bg-gradient-to-br from-primary/20 via-transparent to-accent/20 opacity-50 blur-2xl -z-10" />
-
-          <div className="mb-6">
-            <span className="inline-block px-4 py-2 bg-white/5 border border-white/10 backdrop-blur-md rounded-full text-sm font-medium text-muted-foreground">
-              👋 Welcome to my portfolio
-            </span>
-          </div>
-
-          <h1 className="text-4xl md:text-7xl font-bold mb-6 tracking-tight">
-            Hi, I'm <span className="text-gradient">Gazi Fardin Zafor Suvro</span>
-          </h1>
-
-          <p className="text-lg md:text-2xl text-foreground/90 mb-3">
-            Computer Science Graduate | Full-Stack Developer
-          </p>
-
-          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-            Recent CS graduate from BUET with a passion for building innovative web
-            applications and machine learning solutions. 2nd Runners Up at Therap
-            Javafest 2024.
-          </p>
-
-          <div className="flex flex-wrap gap-3 md:gap-4 justify-center mb-10">
-            <Button size="lg" className="tech-gradient glow-effect" asChild>
-              <a href="#projects">View My Work</a>
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-white/20 bg-white/5 backdrop-blur hover:bg-white/10"
-              asChild
-            >
-              <a href="#contact">Get In Touch</a>
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-primary/60 hover:bg-primary hover:text-primary-foreground"
-              asChild
-            >
-              <a href="/resume.pdf" download="Gazi_Fardin_Resume.pdf">
-                Download Resume
-              </a>
-            </Button>
-          </div>
-
-          <div className="flex gap-4 justify-center">
-            <a
-              href="https://github.com/SuvroGfz"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-              className="p-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-primary/60 rounded-lg transition-all hover:scale-110 hover:shadow-[0_0_20px_hsl(var(--primary)/0.5)]"
-            >
-              <Github className="w-5 h-5" />
-            </a>
-            <a
-              href="https://linkedin.com/in/gazi-fardin-zafor-suvro-a755bb2a7"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              className="p-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-primary/60 rounded-lg transition-all hover:scale-110 hover:shadow-[0_0_20px_hsl(var(--primary)/0.5)]"
-            >
-              <Linkedin className="w-5 h-5" />
-            </a>
-            <a
-              href="mailto:gazisn870@gmail.com"
-              aria-label="Email"
-              className="p-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-primary/60 rounded-lg transition-all hover:scale-110 hover:shadow-[0_0_20px_hsl(var(--primary)/0.5)]"
-            >
-              <Mail className="w-5 h-5" />
-            </a>
-          </div>
-        </div>
+      {/* Crystal Mesh 3D Icosahedron — full-section backdrop */}
+      <div className="absolute inset-0 z-0">
+        <HeroMesh />
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float z-10">
-        <div className="w-6 h-10 border-2 border-primary/70 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-pulse" />
-        </div>
+      {/* Radial gradient glow behind mesh */}
+      <div
+        className="absolute inset-0 z-[1] pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 50% 50% at 50% 50%, hsl(160 84% 39% / 0.12) 0%, hsl(189 95% 43% / 0.06) 40%, transparent 70%)",
+        }}
+      />
+
+      {/* Floating decorative elements */}
+      <span
+        className="absolute top-[15%] left-[10%] z-[2] w-3 h-3 rounded-sm pointer-events-none"
+        style={{
+          background: "linear-gradient(135deg, #10b981, #06b6d4)",
+          animation: "float-decor 6s ease-in-out infinite",
+        }}
+      />
+      <span
+        className="absolute top-[25%] right-[12%] z-[2] w-2 h-2 rounded-full pointer-events-none"
+        style={{
+          background: "linear-gradient(135deg, #10b981, #06b6d4)",
+          animation: "float-decor 7s ease-in-out 1s infinite",
+        }}
+      />
+      <span
+        className="absolute bottom-[20%] left-[18%] z-[2] w-2.5 h-2.5 rounded-sm pointer-events-none"
+        style={{
+          background: "linear-gradient(135deg, #10b981, #06b6d4)",
+          animation: "float-decor 5.5s ease-in-out 0.5s infinite",
+        }}
+      />
+
+      {/* Hero text overlay */}
+      <div className="relative z-10 pointer-events-none text-center px-4">
+        <motion.p
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="text-lg sm:text-xl md:text-2xl font-medium text-emerald-200/60 mb-3 tracking-wide"
+        >
+          👋 Hi, I'm
+        </motion.p>
+
+        <motion.h1
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 0.15, ease: "easeOut" }}
+          className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-wide select-none leading-tight"
+          style={{
+            color: "#d1fae5",
+            textShadow: `
+              0 1px 0 #0d9f6e,
+              0 2px 0 #0c9063,
+              0 3px 0 #0b8158,
+              0 4px 0 #0a724d,
+              0 5px 0 #096342,
+              0 6px 0 #085437,
+              0 7px 0 #07452c,
+              0 8px 0 #063621,
+              0 0 20px rgba(16,185,129,0.6),
+              0 0 40px rgba(16,185,129,0.35),
+              0 0 80px rgba(16,185,129,0.15),
+              0 12px 30px rgba(0,0,0,0.5)
+            `,
+          }}
+        >
+          Gazi Fardin Zafor Suvro
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+          className="mt-6 text-base sm:text-lg md:text-xl font-medium text-emerald-100/70 tracking-wide"
+          style={{
+            animation: "subtle-glow 3s ease-in-out infinite",
+          }}
+        >
+          Computer Science Graduate | Full-Stack Developer
+        </motion.p>
+
+        {/* CTA Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.7, ease: "easeOut" }}
+          className="mt-8 flex flex-wrap gap-3 md:gap-4 justify-center pointer-events-auto"
+        >
+          <Button size="lg" className="tech-gradient glow-effect" onClick={() => scrollToSection('projects')}>
+            View My Work
+          </Button>
+          <Button
+            size="lg"
+            variant="outline"
+            className="border-white/20 bg-white/5 backdrop-blur hover:bg-white/10"
+            onClick={() => scrollToSection('contact')}
+          >
+            Get In Touch
+          </Button>
+          <Button
+            size="lg"
+            variant="outline"
+            className="border-primary/60 hover:bg-primary hover:text-primary-foreground"
+            asChild
+          >
+            <a href="./resume.pdf" download="Gazi_Fardin_Resume.pdf">
+              <Download className="w-4 h-4 mr-2" />
+              Download Resume
+            </a>
+          </Button>
+        </motion.div>
+
+        {/* Social Links */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.9, ease: "easeOut" }}
+          className="mt-6 flex gap-4 justify-center pointer-events-auto"
+        >
+          <a
+            href="https://github.com/SuvroGfz"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            className="p-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-primary/60 rounded-lg transition-all hover:scale-110 hover:shadow-[0_0_20px_hsl(var(--primary)/0.5)]"
+          >
+            <Github className="w-5 h-5" />
+          </a>
+          <a
+            href="https://linkedin.com/in/gazi-fardin-zafor-suvro-a755bb2a7"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            className="p-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-primary/60 rounded-lg transition-all hover:scale-110 hover:shadow-[0_0_20px_hsl(var(--primary)/0.5)]"
+          >
+            <Linkedin className="w-5 h-5" />
+          </a>
+          <a
+            href="mailto:gazisn870@gmail.com"
+            aria-label="Email"
+            className="p-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-primary/60 rounded-lg transition-all hover:scale-110 hover:shadow-[0_0_20px_hsl(var(--primary)/0.5)]"
+          >
+            <Mail className="w-5 h-5" />
+          </a>
+        </motion.div>
       </div>
+
+      {/* Scroll-down indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 0.6 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+      >
+        <button
+          onClick={() => scrollToSection('about')}
+          className="flex flex-col items-center gap-1 pointer-events-auto"
+          aria-label="Scroll down"
+        >
+          <span className="text-xs uppercase tracking-widest text-emerald-200/40 font-medium">
+            Scroll
+          </span>
+          <ChevronDown
+            className="w-5 h-5 text-primary/70 animate-bounce"
+            strokeWidth={2.5}
+          />
+        </button>
+      </motion.div>
     </section>
   );
 };
